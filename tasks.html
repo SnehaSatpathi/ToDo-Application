@@ -1,0 +1,301 @@
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Todo Application</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 750px;
+            margin: 50px auto;
+        }
+
+        /* Header */
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        /* Add Task Section */
+
+        .add-task {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .add-task form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .task-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .task-input:focus {
+            border-color: #4a90e2;
+        }
+
+        .add-button {
+            padding: 12px 22px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .add-button:hover {
+            background-color: #357abd;
+        }
+
+        /* Task Section */
+
+        .tasks {
+            margin-top: 25px;
+        }
+
+        .tasks-title {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Individual Task */
+
+        .task {
+            background-color: white;
+            padding: 15px 18px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        }
+
+        .task-title {
+            font-size: 16px;
+            word-break: break-word;
+        }
+
+        /* Completed Task */
+
+        .completed {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        /* Buttons */
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            margin-left: 15px;
+        }
+
+        .toggle-button,
+        .delete-button {
+            padding: 7px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .toggle-button {
+            color: #333;
+            background-color: #eee;
+        }
+
+        .toggle-button:hover {
+            background-color: #ddd;
+        }
+
+        .delete-button {
+            color: white;
+            background-color: #e74c3c;
+        }
+
+        .delete-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Empty Task */
+
+        .empty {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            color: #888;
+            border-radius: 6px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 94%;
+                margin-top: 30px;
+            }
+
+            .add-task form {
+                flex-direction: column;
+            }
+
+            .add-button {
+                width: 100%;
+            }
+
+            .task {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .actions {
+                margin-left: 0;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- Page Heading -->
+
+    <h1>Todo Application</h1>
+
+
+    <!-- Add Task -->
+
+    <div class="add-task">
+
+        <form action="/" method="post">
+
+            <input
+                    class="task-input"
+                    type="text"
+                    name="title"
+                    placeholder="Enter a new task"
+                    required>
+
+            <button
+                    class="add-button"
+                    type="submit">
+                Add Task
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Tasks -->
+
+    <div class="tasks">
+
+        <h2 class="tasks-title">My Tasks</h2>
+
+
+        <!-- Task List -->
+
+        <th:block th:each="task : ${tasks}">
+
+            <div class="task">
+
+                <!-- Task Title -->
+
+                <span
+                        class="task-title"
+                        th:classappend="${task.completed} ? ' completed'"
+                        th:text="${task.title}">
+                    Task Title
+                </span>
+
+
+                <!-- Actions -->
+
+                <div class="actions">
+
+                    <a
+                            th:href="@{/{id}/toggle(id=${task.id})}"
+                            class="toggle-button">
+
+                        <span th:if="${task.completed}">
+                            Undo
+                        </span>
+
+                        <span th:unless="${task.completed}">
+                            Complete
+                        </span>
+
+                    </a>
+
+
+                    <a
+                            th:href="@{/{id}/delete(id=${task.id})}"
+                            class="delete-button"
+                            onclick="return confirm('Are you sure you want to delete this task?');">
+
+                        Delete
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </th:block>
+
+
+        <!-- Empty State -->
+
+        <div
+                class="empty"
+                th:if="${#lists.isEmpty(tasks)}">
+
+            No tasks available. Add your first task!
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+```

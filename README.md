@@ -3,14 +3,32 @@ A simple Todo Application built using Spring Boot, Spring Data JPA, Thymeleaf, a
 The project demonstrates how to build a Spring Boot application with database connectivity, JPA entity management, and a web-based interface.
 
 🚀 Technologies Used
+
+
 Java 23
+
+
 Spring Boot 3.3.5
+
+
 Spring Web
+
+
 Spring Data JPA
+
+
 Thymeleaf
+
+
 MySQL
+
+
 Hibernate
+
+
 Lombok
+
+
 Maven
 
 📁 Project Structure

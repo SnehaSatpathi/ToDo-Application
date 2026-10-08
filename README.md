@@ -124,44 +124,90 @@ These dependencies are already configured in the project's pom.xml
 
 
 ▶️ How to Run the Project
+
+
 1. Clone the Repository
+
+
 git clone <your-github-repository-url>
 
 2. Open the Project
+
+
 Open the project in IntelliJ IDEA or another Java IDE.
 
 3. Configure MySQL
+
+
 Make sure MySQL is running and create the database:
+
+
 CREATE DATABASE todoapp;
 
 4. Set Database Password
+
+
 Set the DB_PASSWORD environment variable with your MySQL password.
 
 For Windows PowerShell:
+
+
 $env:DB_PASSWORD="your_mysql_password"
 
 5. Build the Project
+
+
 Using Maven:
+
+
 mvn clean install
 
 6. Run the application
+
+
 mvn spring-boot:run
+
+
 Or run the main Spring Boot application directly from IntelliJ IDEA.
 
 🌐 Application
+
+
 After starting the application, open:
+
+
 http://localhost:8080
 
 🎯 Project Purpose
+
+
 This project was created to practice and demonstrate:
+
+
 Spring Boot application development
+
+
 REST/Web application development
+
+
 MySQL database connectivity
+
+
 Spring Data JPA
+
+
 Hibernate ORM
+
+
 Entity creation
+
+
 Thymeleaf integration
+
+
 Maven dependency management
+
+
 Basic CRUD application architecture
 
 

@@ -39,37 +39,89 @@ Maven
 
 
 🗄️ Database Configuration
+
+
 The application uses MySQL as its database.
+
+
 Current database configuration:
 
 spring.datasource.url=jdbc:mysql://localhost:3306/todo-app
+
+
 spring.datasource.username=root
+
+
 spring.datasource.password=${DB_PASSWORD}
+
+
 spring.jpa.hibernate.ddl-auto=update
+
+
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+
 The password is loaded through the DB_PASSWORD environment variable rather than being directly stored in the configuration file.
 
+
+
 🗄️ Create the Database
+
+
 Open MySQL and run:
+
+
 CREATE DATABASE todoapp;
 
 📌 Task Entity
+
+
 The application contains a Task entity with the following fields:
+
+
 Field       	Type          	Description
+
+
 id	          Long	      Unique task identifier
+
+
 title	       String         	Task title
+
+
 completed	   boolean	   Task completion status
+
+
 The id field is automatically generated using JPA, while Lombok's @Data annotation generates common methods such as getters and setters.
 
+
+
 ⚙️ Dependencies
+
+
 The project uses:
+
+
 spring-boot-starter-web
+
+
 spring-boot-starter-data-jpa
+
+
 spring-boot-starter-thymeleaf
+
+
 mysql-connector-j
+
+
 lombok
+
+
 spring-boot-starter-test
+
+
 These dependencies are already configured in the project's pom.xml
+
+
 
 ▶️ How to Run the Project
 1. Clone the Repository

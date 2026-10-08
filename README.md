@@ -37,67 +37,6 @@ Lombok
 Maven
 
 
-📁 Project Structure
-
-
-todoapp/
-
-
-│
-
-
-├── src/
-
-
-│   ├── main/
-
-
-│   │   ├── java/
-
-
-│   │   │   └── com/
-
-
-│   │   │       └── app/
-
-
-│   │   │           └── todoapp/
-
-
-│   │   │               ├── models/
-
-
-│   │   │               │   └── Task.java
-
-
-│   │   │               │
-
-
-│   │   │               └── TodoappApplication.java
-
-
-│   │   │
-
-
-│   │   └── resources/
-
-
-│   │       ├── templates/
-
-
-│   │       ├── static/
-
-
-│   │       └── application.properties
-
-
-│   │
-
-
-├── pom.xml
-
-
-└── README.md
 
 🗄️ Database Configuration
 The application uses MySQL as its database.

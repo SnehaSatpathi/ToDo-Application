@@ -1,6 +1,11 @@
 **Todo App**
+
+
 A simple Todo Application built using Spring Boot, Spring Data JPA, Thymeleaf, and MySQL.
+
+
 The project demonstrates how to build a Spring Boot application with database connectivity, JPA entity management, and a web-based interface.
+
 
 🚀 Technologies Used
 
@@ -31,26 +36,67 @@ Lombok
 
 Maven
 
+
 📁 Project Structure
+
+
 todoapp/
+
+
 │
+
+
 ├── src/
+
+
 │   ├── main/
+
+
 │   │   ├── java/
+
+
 │   │   │   └── com/
+
+
 │   │   │       └── app/
+
+
 │   │   │           └── todoapp/
+
+
 │   │   │               ├── models/
+
+
 │   │   │               │   └── Task.java
+
+
 │   │   │               │
+
+
 │   │   │               └── TodoappApplication.java
+
+
 │   │   │
+
+
 │   │   └── resources/
+
+
 │   │       ├── templates/
+
+
 │   │       ├── static/
+
+
 │   │       └── application.properties
+
+
 │   │
+
+
 ├── pom.xml
+
+
 └── README.md
 
 🗄️ Database Configuration
